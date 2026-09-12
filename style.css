@@ -1,0 +1,513 @@
+/* ==========================================================
+   1. RESET
+   ========================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  background-color: #ffffff;
+  color: #000000;
+  line-height: 1.6;
+}
+
+
+/* ==========================================================
+   2. HEADER + NAVBAR
+   ========================================================== */
+header {
+  position: sticky;
+  top: 0;
+  background-color: #f7f7f8;
+  padding: 1rem 2.5rem;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  justify-content: flex-end;
+}
+
+nav a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.25rem 0;
+  transition: color 0.2s ease;
+}
+
+nav a.active {
+  color: #ffb703;
+}
+
+nav a:hover {
+  color: #ffcf40;
+}
+
+
+/* ==========================================================
+   3. HERO
+   ========================================================== */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+  min-height: 80vh;
+  padding: 3rem 2.5rem;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  flex: 1 1 400px;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-text .highlight {
+  color: #ffcf40;
+}
+
+.hero-tagline {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+  color: #555555;
+}
+
+#typing-text {
+  border-right: 2px solid #000000;
+  padding-right: 4px;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: #ffcf40;
+  color: #150c26;
+  padding: 0.9rem 2rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 207, 64, 0.35);
+}
+
+.btn-primary:focus {
+  outline: 2px solid #000000;
+  outline-offset: 3px;
+}
+
+.social-icons {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.social-icons a {
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgba(0, 8, 255, 0.464);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #010002;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.social-icons a:hover {
+  background-color: #ffcf40;
+  color: #150c26;
+  transform: translateY(-2px);
+}
+
+.hero-image {
+  flex: 1 1 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.avatar {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #ffcf40;
+}
+
+
+/* ==========================================================
+   4. ABOUT
+   ========================================================== */
+.about-content {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.about-text {
+  text-align: left;
+  flex: 1;
+}
+
+.about-image {
+  flex: 0 0 auto;
+}
+
+.Profile {
+  width: 450px;
+  height: 450px;
+  border-radius: 5%;
+  object-fit: cover;
+}
+
+#about p:first-of-type {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #000000;
+}
+
+
+/* ==========================================================
+   5. MAIN + SECTION
+   ========================================================== */
+main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 1.25rem;
+}
+
+section {
+  margin-bottom: 5rem;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+section p {
+  margin-bottom: 0.75rem;
+  color: #000000;
+}
+
+
+/* ==========================================================
+   6. SKILLS
+   ========================================================== */
+.skill-group {
+  margin-bottom: 2.5rem;
+}
+
+.skill-group h3 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #ffb703;
+  text-align: left;
+}
+
+.skill-group ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.skill-group li {
+  background-color: #f7f7f8;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 600;
+  color: #222222;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.skill-group li:hover {
+  transform: translateY(-5px);
+  border-color: #ffcf40;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ==========================================================
+   7. EDUCATION
+   ========================================================== */
+#education {
+  display: block;
+}
+
+#education .edu-content {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+#education .edu-text {
+  flex: 1 1 350px;
+}
+
+#education h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: #ffcf40;
+}
+
+#education img {
+  width: 380px;
+  height: 300px;
+  border-radius: 0.75rem;
+  object-fit: cover;
+}
+
+/* ==========================================================
+   8. PROJECTS
+   ========================================================== */
+#project {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+#project > h2 {
+  grid-column: 1 / -1;
+}
+
+.project-card {
+  position: relative;
+  background-color: #bef1e8;
+  border: 1px solid #e5e5e5;
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-radius: 10px;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  border-color: #ffcf40;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.project-thumb-placeholder {
+  height: 200px;
+  background-color: #f5f5f5;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888888;
+  font-size: 0.9rem;
+  overflow: hidden;
+}
+
+.project-card h3 {
+  font-size: 1.15rem;
+  margin: 1rem 0 0.6rem;
+  color: #111111;
+}
+
+.project-summary {
+  font-size: 0.9rem;
+  color: #666666;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.tech-tags {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.75rem 0 1rem;
+}
+
+.tech-tags li {
+  background-color: #fff3bf;
+  color: #6b5200;
+  padding: 0.3rem 0.7rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.project-actions {
+  margin-top: 1rem;
+}
+
+.btn-view {
+  display: inline-block;
+  background-color: #ffcf40;
+  color: #150c26;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 20px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.btn-view:hover {
+  background-color: #ffb703;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+/* ==========================================================
+   9. PROJECT DETAIL PAGES
+   ใช้ร่วมกันกับ project1.html - project6.html
+   ========================================================== */
+.project-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem 1.5rem;
+}
+
+.project-page h1 {
+  font-size: 2.5rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.project-page .project-status {
+  color: #ffb703;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.project-page .tech-tags {
+  margin-bottom: 2rem;
+}
+
+.project-page section {
+  margin-bottom: 2.5rem;
+}
+
+.project-page section h2 {
+  text-align: left;
+  color: #ffb703;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.project-page section p {
+  color: #333333;
+}
+
+.project-page ul:not(.tech-tags) {
+  padding-left: 1.5rem;
+}
+
+.project-page ul:not(.tech-tags) li {
+  margin-bottom: 0.5rem;
+}
+
+.project-page .btn-view {
+  margin-top: 0.5rem;
+}
+
+
+/* ==========================================================
+   10. RESPONSIVE
+   ========================================================== */
+@media (max-width: 768px) {
+
+  header {
+    padding: 1rem;
+  }
+
+  nav ul {
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero {
+    padding: 2rem 1.25rem;
+    text-align: center;
+  }
+
+  .hero-text h1 {
+    font-size: 2.3rem;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .avatar {
+    width: 250px;
+    height: 250px;
+  }
+
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .Profile {
+    width: 250px;
+    height: 250px;
+  }
+
+  #education {
+    text-align: center;
+    justify-content: center;
+  }
+
+  #education img {
+    width: min(100%, 380px);
+    height: auto;
+  }
+
+  #project {
+    grid-template-columns: 1fr;
+  }
+
+  #project > h2 {
+    grid-column: auto;
+  }
+
+  .project-page h1 {
+    font-size: 2rem;
+  }
+}
