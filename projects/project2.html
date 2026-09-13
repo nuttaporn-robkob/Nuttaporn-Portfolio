@@ -3,66 +3,76 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <title>ToTo AI Chatbot | Nuttaporn Robkob</title>
   <link rel="stylesheet" href="../style.css">
-
-  <title>Thai-English Conversational AI Assistant | Nuttaporn Robkob</title>
 </head>
-
 <body>
-
-  <header>
-    <nav>
-      <ul>
-        <li><a href="../index.html#home">Home</a></li>
-        <li><a href="../index.html#about">About</a></li>
-        <li><a href="../index.html#skills">Skills</a></li>
-        <li><a href="../index.html#education">Education</a></li>
-        <li><a href="../index.html#project">Projects</a></li>
+  <main class="case-study">
+    <section class="case-hero">
+      <div class="case-eyebrow">Project 02 · AI / Software</div>
+      <h1>Bilingual AI Voice Assistant — ToTo Chatbot</h1>
+      <p class="case-lead">A Thai-English conversational AI assistant built with Python and Streamlit. The application combines a Gemini language model with speech recognition and text-to-speech so users can interact through both text and voice.</p>
+      <ul class="case-tags">
+        <li>Python</li><li>Streamlit</li><li>Google Gemini API</li><li>Speech Recognition</li><li>gTTS</li><li>Thai / English</li>
       </ul>
-    </nav>
-  </header>
-
-  <main class="project-page">
-
-    <a href="../index.html#project" class="btn-view">
-      ← Back to Projects
-    </a>
-
-    <h1>Thai-English Conversational AI Assistant</h1>
-
-    <ul class="tech-tags">
-        <li>Python</li>
-        <li>AI/LLM</li>
-        <li>API</li>
-        <li>Natural Language Processing</li>
-    </ul>
-
-    <section>
-      <h2>Project Overview</h2>
-      <p>
-        Developed a conversational AI assistant designed to communicate in both Thai and English and provide interactive responses using AI language models.
-      </p>
+      <div class="case-cta">
+        <a class="btn-primary" href="https://toto-chatbot-843uufktg7nkeyzb29jtu2.streamlit.app" target="_blank" rel="noopener noreferrer">Live Demo</a>
+      </div>
     </section>
 
-    <section>
+    <section class="case-section">
+      <h2>Project at a Glance</h2>
+      <div class="case-grid">
+        <div class="case-card"><strong>Goal</strong><span>Create an interactive bilingual assistant that can accept text and voice input.</span></div>
+        <div class="case-card"><strong>My Focus</strong><span>AI integration, voice interaction, application flow, testing, and user-facing interface.</span></div>
+        <div class="case-card"><strong>AI Engine</strong><span>Google Gemini API through the Google GenAI Python client.</span></div>
+        <div class="case-card"><strong>Interface</strong><span>Streamlit web application with session-based conversation history.</span></div>
+      </div>
+    </section>
+
+    <section class="case-section">
+      <h2>How the System Works</h2>
+      <div class="architecture">
+        <div class="arch-node"><b>1. User Input</b>Text or microphone input</div>
+        <div class="arch-node"><b>2. Processing</b>Speech-to-text when voice is used</div>
+        <div class="arch-node"><b>3. Gemini</b>Generate a Thai/English response</div>
+        <div class="arch-node"><b>4. Chat State</b>Keep conversation messages in session state</div>
+        <div class="arch-node"><b>5. Voice Output</b>Convert the response to audio with gTTS</div>
+        <div class="arch-node"><b>6. Streamlit UI</b>Display the conversation and controls</div>
+      </div>
+    </section>
+
+    <section class="case-section">
       <h2>Key Features</h2>
       <ul>
-          <li>Thai-English conversational interaction</li>
-          <li>AI-powered response generation</li>
-          <li>API integration</li>
-          <li>Prompt design and testing</li>
-          <li>Response quality evaluation</li>
+        <li>Thai-English conversational interaction.</li>
+        <li>AI response generation using the Gemini API.</li>
+        <li>Voice input through speech recognition.</li>
+        <li>Text-to-speech output using gTTS.</li>
+        <li>Conversation history maintained with Streamlit session state.</li>
+        <li>Special commands such as time and name handling.</li>
+        <li>Error handling for missing API configuration and voice-generation failures.</li>
       </ul>
     </section>
 
-    <a href="https://toto-chatbot-843uufktg7nkeyzb29jtu2.streamlit.app/"
-      class="btn-primary"
-      target="_blank"
-      rel="noopener noreferrer">
-        Live Demo
-    </a>
-  </main>
+    <section class="case-section">
+      <h2>My Contribution</h2>
+      <ul>
+        <li>Implemented the Gemini client and AI response flow.</li>
+        <li>Designed Thai and English system instructions for the assistant.</li>
+        <li>Integrated speech-to-text and text-to-speech functions.</li>
+        <li>Implemented message/session-state handling for the chat interface.</li>
+        <li>Added special command handling and fallback behavior.</li>
+        <li>Tested response relevance, speech-recognition performance, response timing, and system stability.</li>
+      </ul>
+    </section>
 
+    <section class="case-section">
+      <h2>What I Learned</h2>
+      <p>This project strengthened my experience in connecting AI APIs to a working application rather than treating the language model as a standalone component. I also worked across the full interaction flow: input → processing → AI response → optional voice output → user interface.</p>
+    </section>
+
+    <a class="case-back" href="../index.html#project">← Back to Projects</a>
+  </main>
 </body>
 </html>
