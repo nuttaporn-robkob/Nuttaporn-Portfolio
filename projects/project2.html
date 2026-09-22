@@ -3,76 +3,111 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ToTo AI Chatbot | Nuttaporn Robkob</title>
+
   <link rel="stylesheet" href="../style.css">
+
+  <title>Thai-English Conversational AI Assistant | Nuttaporn Robkob</title>
 </head>
+
 <body>
-  <main class="case-study">
-    <section class="case-hero">
-      <div class="case-eyebrow">Project 02 · AI / Software</div>
-      <h1>Bilingual AI Voice Assistant — ToTo Chatbot</h1>
-      <p class="case-lead">A Thai-English conversational AI assistant built with Python and Streamlit. The application combines a Gemini language model with speech recognition and text-to-speech so users can interact through both text and voice.</p>
-      <ul class="case-tags">
-        <li>Python</li><li>Streamlit</li><li>Google Gemini API</li><li>Speech Recognition</li><li>gTTS</li><li>Thai / English</li>
-      </ul>
-      <div class="case-cta">
-        <a class="btn-primary" href="https://toto-chatbot-843uufktg7nkeyzb29jtu2.streamlit.app" target="_blank" rel="noopener noreferrer">Live Demo</a>
-      </div>
-    </section>
 
-    <section class="case-section">
-      <h2>Project at a Glance</h2>
-      <div class="case-grid">
-        <div class="case-card"><strong>Goal</strong><span>Create an interactive bilingual assistant that can accept text and voice input.</span></div>
-        <div class="case-card"><strong>My Focus</strong><span>AI integration, voice interaction, application flow, testing, and user-facing interface.</span></div>
-        <div class="case-card"><strong>AI Engine</strong><span>Google Gemini API through the Google GenAI Python client.</span></div>
-        <div class="case-card"><strong>Interface</strong><span>Streamlit web application with session-based conversation history.</span></div>
-      </div>
-    </section>
-
-    <section class="case-section">
-      <h2>How the System Works</h2>
-      <div class="architecture">
-        <div class="arch-node"><b>1. User Input</b>Text or microphone input</div>
-        <div class="arch-node"><b>2. Processing</b>Speech-to-text when voice is used</div>
-        <div class="arch-node"><b>3. Gemini</b>Generate a Thai/English response</div>
-        <div class="arch-node"><b>4. Chat State</b>Keep conversation messages in session state</div>
-        <div class="arch-node"><b>5. Voice Output</b>Convert the response to audio with gTTS</div>
-        <div class="arch-node"><b>6. Streamlit UI</b>Display the conversation and controls</div>
-      </div>
-    </section>
-
-    <section class="case-section">
-      <h2>Key Features</h2>
+  <header>
+    <nav>
       <ul>
-        <li>Thai-English conversational interaction.</li>
-        <li>AI response generation using the Gemini API.</li>
-        <li>Voice input through speech recognition.</li>
-        <li>Text-to-speech output using gTTS.</li>
-        <li>Conversation history maintained with Streamlit session state.</li>
-        <li>Special commands such as time and name handling.</li>
-        <li>Error handling for missing API configuration and voice-generation failures.</li>
+        <li><a href="../index.html#home">Home</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#education">Education</a></li>
+        <li><a href="../index.html#project">Projects</a></li>
       </ul>
-    </section>
+    </nav>
+  </header>
 
-    <section class="case-section">
-      <h2>My Contribution</h2>
-      <ul>
-        <li>Implemented the Gemini client and AI response flow.</li>
-        <li>Designed Thai and English system instructions for the assistant.</li>
-        <li>Integrated speech-to-text and text-to-speech functions.</li>
-        <li>Implemented message/session-state handling for the chat interface.</li>
-        <li>Added special command handling and fallback behavior.</li>
-        <li>Tested response relevance, speech-recognition performance, response timing, and system stability.</li>
-      </ul>
-    </section>
+  <main class="project-page">
 
-    <section class="case-section">
-      <h2>What I Learned</h2>
-      <p>This project strengthened my experience in connecting AI APIs to a working application rather than treating the language model as a standalone component. I also worked across the full interaction flow: input → processing → AI response → optional voice output → user interface.</p>
-    </section>
+    <a href="../index.html#project" class="btn-view">
+      ← Back to Projects
+    </a>
 
-    <a class="case-back" href="../index.html#project">← Back to Projects</a>
+    <h1>Thai-English Conversational AI Assistant</h1>
+
+    <ul class="tech-tags">
+        <li>Python</li>
+        <li>AI/LLM</li>
+        <li>API</li>
+        <li>Natural Language Processing</li>
+    </ul>
+
+    <section>
+      <p>
+        A bilingual (Thai-English) voice assistant built to remove the barrier of typing. Many AI chat apps assume
+        the user is comfortable typing quickly, which isn't true for everyone — this project targets children,
+        older adults, and anyone with a physical or situational difficulty typing, letting them simply speak their
+        question and hear a spoken answer back.
+      </p>
+
+      <section>
+        <h2>Key Features</h2>
+        <ul>
+          <li>
+            <strong>Speech-to-Text (STT)</strong> — converts spoken audio into text — supporting both Thai and
+            English, via the Google Web Speech API.
+          </li>
+          <li>
+            The transcribed question is sent to Google's <strong>Gemini</strong> large language model, and the
+            reply is both shown as text and read aloud using <strong>gTTS</strong> (Google Text-to-Speech, a
+            library that converts written text back into spoken audio).
+          </li>
+          <li>A language toggle in the interface lets the user pick Thai or English before starting a conversation.</li>
+          <li>Common questions (like asking the time or the assistant's name) have pre-written, instant responses rather than being sent to the AI model.</li>
+          <li>If the assistant can't understand what was said, it shows a clear message and lets the user simply try again.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Choosing an AI Model</h2>
+        <p>
+          Three AI models were compared before settling on one — Google's <strong>Gemini</strong>, OpenAI's
+          <strong>GPT</strong>, and OpenAI's <strong>Whisper</strong> — weighing accuracy, language support,
+          response speed, and whether each could run offline.
+        </p>
+        <ul>
+          <li><strong>Whisper</strong> — the most accurate, especially for English, but takes longer to process each request.</li>
+          <li><strong>Gemini</strong> — the fastest of the three, with strong multi-language support, at a small cost to raw accuracy.</li>
+          <li><strong>GPT</strong> — a middle ground between speed and accuracy.</li>
+        </ul>
+        <p><strong>Gemini</strong> was chosen because a conversational assistant needs to feel responsive above all else.</p>
+      </section>
+
+      <section>
+        <h2>Evaluation Criteria</h2>
+        <p>The finished assistant was evaluated against five criteria:</p>
+        <ul>
+          <li>How relevant and accurate Gemini's answers were to what was actually asked.</li>
+          <li>How well the speech-to-text step performed at correctly transcribing spoken Thai and English.</li>
+          <li>How long the full round-trip took, from speaking to hearing a reply.</li>
+          <li>Whether replies consistently came back in the language the user had selected, and how stable the app was over repeated use.</li>
+          <li>How gracefully the app handled unclear or invalid audio input, rather than crashing or freezing.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Future Work</h2>
+        <ul>
+          <li>Give the chatbot the ability to learn and adapt in real time from conversations.</li>
+          <li>Add a more consistent personality and emotional tone to responses.</li>
+          <li>Adapt the assistant into an intelligent customer-service tool capable of handling more complex problems.</li>
+          <li>Extend it into a multi-modal AI that can also understand images, audio, and video, not just text.</li>
+        </ul>
+      </section>
+
+    <a href="https://toto-chatbot-843uufktg7nkeyzb29jtu2.streamlit.app/"
+      class="btn-primary"
+      target="_blank"
+      rel="noopener noreferrer">
+        Live Demo
+    </a>
   </main>
+
 </body>
 </html>

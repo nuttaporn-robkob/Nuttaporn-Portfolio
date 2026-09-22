@@ -39,27 +39,107 @@
         <li>IGRF</li>
     </ul>
 
-    <section>
-      <h2>Project Overview</h2>
-      <p>
-        Designed and developed a 3-axis magnetic field simulation system using Octagonal Helmholtz Coils for satellite ADCS Hardware-in-the-Loop (HIL) testing.
+    <p>
+        A Mechatronics Engineering thesis project: the design and development of a 3-axis Earth magnetic field
+        simulation system, used to test the Attitude Determination and Control System (ADCS — the subsystem
+        that keeps a satellite pointed in the right direction) of small satellites through Hardware-in-the-Loop
+        (HIL) testing, meaning real physical hardware is tested against a realistic simulated environment
+        instead of pure software simulation alone.
       </p>
-    </section>
 
-    <section>
-      <h2>Key Features</h2>
-      <ul>
-          <li>Developed magnetic field models based on the Biot-Savart Law</li>
-          <li>Integrated SGP4 orbit propagation and IGRF models</li>
-          <li>Implemented PID control on STM32 Nucleo-F439ZI</li>
-          <li>Performed sensor calibration and system validation</li>
-          <li>Developed a central control interface using Simulink</li>
-      </ul>
-    </section>
+      <section>
+        <h2>How It Works</h2>
+        <img src="Systemwork.png" alt="How to work TLE to Earth Magnetic Field">
+        <ul>
+          <li>
+            The system reads a satellite's orbital position from a <strong>TLE (Two-Line Element)</strong> dataset —
+            a standardized, compact text format used worldwide to describe a satellite's orbit.
+          </li>
+          <li>
+            That orbital data is processed using the <strong>SGP4</strong> algorithm (a widely-used mathematical
+            model for predicting a satellite's exact position over time from its TLE data), combined with the
+            <strong>IGRF</strong> model (the International Geomagnetic Reference Field — a scientific model that
+            estimates the strength and direction of Earth's magnetic field at any location) to calculate the
+            target magnetic field strength the satellite would actually experience at that position.
+          </li>
+          <li>
+            A <strong>PID controller</strong> (a control algorithm that continuously adjusts an output — here,
+            electrical current — based on the error between a target value and the current measured value) running
+            on an STM32 Nucleo-F439ZI microcontroller regulates the current sent to the coils.
+          </li>
+          <li>
+            An HMR2300 magnetic field sensor measures the actual field being produced and feeds that reading back
+            into the control loop to correct any error in real time.
+          </li>
+          <li>A central control interface built in Simulink lets the operator set and adjust the target magnetic field value.</li>
+        </ul>
+      </section>
 
-    <a href="../index.html#project" class="btn-view">
-      ← Back to Projects
-    </a>
+      <section>
+        <h2>What Is a Helmholtz Coil?</h2>
+        <p>
+          A <strong>Helmholtz coil</strong> is a set of electromagnetic coils arranged so that, when current
+          flows through them, they produce a very uniform magnetic field in the space at their center. This
+          project used an eight-sided (octagonal) arrangement across all 3 axes (X, Y, Z) to create a controllable,
+          uniform magnetic field strong enough and consistent enough to reliably test satellite hardware inside it.
+        </p>
+      </section>
+
+      <section>
+        <h2>Build Notes</h2>
+        <img src="Coil.png" alt="Coil X, Y, Z">
+        <p>
+          During assembly, there wasn't quite enough copper wire on hand, resulting in a small deviation from the
+          designed 100 turns per axis: the X-axis ended up with 102 turns, Y-axis with 100, and Z-axis with 94.
+          Despite this, the control system was able to compensate automatically, still producing a magnetic field
+          that accurately matched the target setpoint.
+        </p>
+      </section>
+
+      <section>
+        <h2>Test Results</h2>
+        <p>
+          The system was tested by simulating the real orbital paths of 3 different satellites, sped up 10× with
+          a time-scaling technique, across three orbit altitude bands. Accuracy was measured using
+          <strong>RMSE</strong> (Root Mean Square Error — a standard statistic for how far actual readings deviate,
+          on average, from the target value) expressed as a percentage of the reference field strength.
+        </p>
+        <img src="Satellite.png" alt="Graph of the LEO, MEO, GEO">
+        <ul>
+          <li>
+            <strong>Low Earth Orbit (LEO)</strong> — the highest error of the three, peaking at 458.674 nT on the
+            Z-axis (simulating the ISS/ZARYA) — a relative error of 1.609%. LEO has the fastest-changing magnetic
+            field of the three orbit bands, yet the system still kept every axis under 2% relative error.
+          </li>
+          <li>
+            <strong>Medium Earth Orbit (MEO)</strong> — relative error stayed under 1.5% on every axis, helped by
+            the slower, narrower swings in field strength at this altitude.
+          </li>
+          <li>
+            <strong>Geostationary Orbit (GEO)</strong> — Earth's magnetic field is extremely weak this far out, so
+            even a tiny absolute error becomes a larger percentage of that small baseline — relative error reached
+            as high as 12% here, even though the actual field strength involved was very small.
+          </li>
+        </ul>
+        <p>
+          These results confirmed that the coil structure and control system were stable and accurate enough to be
+          used for real engineering and aerospace hardware testing.
+        </p>
+      </section>
+
+      <a href="Thesis_final.pdf"
+             class="btn-primary"
+             target="_blank"
+             rel="noopener noreferrer">
+            Thesis
+      </a>
+      <a href="Present_FinalProject.pptx"
+             class="btn-primary"
+             target="_blank"
+             rel="noopener noreferrer">
+            Present Project
+      </a>
+
 
   </main>
 

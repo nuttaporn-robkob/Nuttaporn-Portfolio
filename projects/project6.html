@@ -6,7 +6,7 @@
 
   <link rel="stylesheet" href="../style.css">
 
-  <title>Servo-Controlled 4WD Mecanum Robot for Ball Retrieval | Nuttaporn Robkob</title>
+  <title>4WD Mecanum Robot for Ball Color Sorting | Nuttaporn Robkob</title>
 </head>
 
 <body>
@@ -29,51 +29,141 @@
       ← Back to Projects
     </a>
 
-    <h1>Servo-Controlled 4WD Mecanum Robot for Ball Retrieval</h1>
+    <h1>4WD Mecanum Robot for Ball Color Sorting</h1>
 
     <ul class="tech-tags">
-        <li>Arduino</li>
-        <li>Mecanum Wheels</li>
-        <li>Servo Motor</li>
-        <li>RGB Color Sensor</li>
-        <li>Bluetooth</li>
-        <li>Robotics</li>
+      <li>Arduino</li>
+      <li>Mecanum Wheels</li>
+      <li>RGB Color Sensor</li>
+      <li>Servo Motor</li>
+      <li>HC-06 Bluetooth</li>
+      <li>Robotics</li>
     </ul>
 
+    <p>
+      A Mechatronics Engineering project focused on the design and development of
+      a 4WD Mecanum-wheel robot for collecting and sorting balls by color. The robot
+      is controlled by a smartphone through HC-06 Bluetooth communication and uses
+      servo mechanisms and an RGB color sensor to collect, detect, and sort balls
+      into different compartments.
+    </p>
+
     <section>
-      <h2>Project Overview</h2>
+      <h2>How It Works</h2>
+
+      <ul>
+        <li>
+          The robot is controlled from a smartphone through the
+          <strong>HC-06 Bluetooth module</strong>.
+        </li>
+
+        <li>
+          Four gear motors drive the <strong>Mecanum wheels</strong>, allowing
+          forward, backward, lateral, and rotational movement.
+        </li>
+
+        <li>
+          A <strong>servo-controlled mechanism</strong> collects and transfers
+          the ball into the sorting system.
+        </li>
+
+        <li>
+          An <strong>RGB color sensor</strong> detects the color of the ball.
+        </li>
+
+        <li>
+          A servo mechanism rotates the ball toward the corresponding
+          color compartment.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Mecanum Wheel System</h2>
+
       <p>
-        Designed and developed a 4WD Mecanum-wheel robot for collecting and sorting colored balls. The robot is controlled via a smartphone through Bluetooth communication and uses Mecanum wheels for forward, backward, lateral, and rotational movement. Servo mechanisms are used to collect and transfer balls, while an RGB color sensor detects ball colors and controls the sorting process.
+        Mecanum wheels use rollers arranged at approximately 45° to provide
+        multi-directional movement. By controlling the rotation of all four
+        wheels in different combinations, the robot can move forward, backward,
+        sideways, and rotate around its own axis without changing its orientation.
       </p>
     </section>
 
     <section>
-      <h2>Key Features</h2>
+      <h2>Color Detection & Sorting</h2>
+
+      <p>
+        The RGB color sensor is used to distinguish different ball colors based
+        on red, green, and blue light components. After detecting the ball color,
+        the servo-controlled sorting mechanism moves the ball to its corresponding
+        compartment.
+      </p>
+
+      <p>
+        The system was designed to collect four different colors of balls,
+        with five balls for each color, within a target time of three minutes.
+      </p>
+    </section>
+
+    <section>
+      <h2>My Contribution</h2>
+
       <ul>
-          <li>4WD Mecanum-wheel drive for omnidirectional movement</li>
-          <li>Smartphone control through HC-06 Bluetooth</li>
-          <li>Servo-controlled ball retrieval mechanism</li>
-          <li>RGB color sensing for ball identification</li>
-          <li>Servo mechanism for sorting balls into different compartments</li>
-          <li>Designed to collect 4 colors of balls, 5 balls per color, within a 3-minute target</li>
+        <li>
+          Designed and assembled mechanical structures for ball collection
+          and sorting.
+        </li>
+
+        <li>
+          Integrated Mecanum wheels, gear motors, servo motors, and the
+          RGB color sensor.
+        </li>
+
+        <li>
+          Developed the control system for robot movement and ball collection.
+        </li>
+
+        <li>
+          Integrated HC-06 Bluetooth communication for smartphone control.
+        </li>
+
+        <li>
+          Tested sensor accuracy, motor operation, servo movement, and
+          mechanical performance.
+        </li>
       </ul>
     </section>
 
-      <section>
-        <h2>My Contribution</h2>
-        <ul>
-          <li>Designed mechanical components and structures for the robot</li>
-          <li>Integrated Mecanum wheels, gear motors, servo motors, and RGB color sensor</li>
-          <li>Developed the control system for robot movement and ball retrieval</li>
-          <li>Integrated Bluetooth communication for smartphone control</li>
-          <li>Tested and troubleshot sensor accuracy, motor power, servo movement, and mechanical load issues</li>
-          <li>Improved the design by reducing component weight and modifying the power/control system</li>
-        </ul>
-      </section>
+    <section>
+      <h2>Challenges & Solutions</h2>
 
-    <a href="../index.html#project" class="btn-view">
-      ← Back to Projects
-    </a>
+      <ul>
+        <li>
+          Improved color detection accuracy by adjusting the sensor position
+          closer to the ball.
+        </li>
+
+        <li>
+          Modified the power system to provide sufficient current for
+          motor operation.
+        </li>
+
+        <li>
+          Replaced an unsuitable servo motor and reduced the mechanical load
+          to improve servo performance.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>What I Learned</h2>
+
+      <p>
+        This project strengthened my practical understanding of robotics,
+        Mecanum-wheel movement, RGB sensor integration, servo control,
+        mechanical design, Bluetooth communication, and hardware troubleshooting.
+      </p>
+    </section>
 
   </main>
 

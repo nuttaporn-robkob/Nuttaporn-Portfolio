@@ -40,40 +40,63 @@
         <li>Embedded Systems</li>
     </ul>
 
-    <section>
-      <h2>Project Overview</h2>
-      <p>
-        Designed and developed a two-legged walking robot controlled by servo motors. The robot uses multiple servo motors to control the hip, knee, and foot joints, enabling forward and backward walking movements. Bluetooth communication was implemented to receive movement commands from a mobile application developed with MIT App Inventor.
+    <p>
+        A project for the course ENGMC105 (Project-Based Learning for Mechatronics Engineering). A two-legged
+        robot that walks using servo motors, controlled wirelessly over Bluetooth from a custom mobile app
+        built with MIT App Inventor (a browser-based tool for building simple Android apps by dragging and
+        connecting visual blocks, rather than writing code by hand).
       </p>
-    </section>
 
-    <section>
-      <h2>Key Features</h2>
-      <ul>
-          <li>Multi-servo control for coordinated leg movements</li>
-          <li>Forward, backward, and stop movement functions</li>
-          <li>Bluetooth communication between the robot and mobile application</li>
-          <li>Mobile control interface developed with MIT App Inventor</li>
-          <li>Servo synchronization for smoother walking motion</li>
-          <li>Mechanical balance and weight distribution testing</li>
-          <li>Troubleshooting and mechanical adjustments during prototype testing</li>
-      </ul>
-    </section>
+      <img src="img/robot-cad-overview.jpg" alt="CAD drawings of the robot's leg structure, showing front, side, and isometric views with dimensions of 194.70mm width and 185.70mm height" style="max-width:100%; border-radius:8px; margin: 1rem 0;">
 
       <section>
-        <h2>My Contribution</h2>
+        <h2>Mechanical Design</h2>
+        <p>Each leg uses three servo motors (a small motor that can be commanded to hold a specific rotation angle, unlike a regular motor that only spins continuously), each with a distinct job:</p>
         <ul>
-          <li>Developed the servo motor control and walking sequence</li>
-          <li>Implemented Bluetooth command communication</li>
-          <li>Developed movement functions for forward, backward, and stop operations</li>
-          <li>Tested robot movement and identified mechanical/balance issues</li>
-          <li>Adjusted the robot's structure and weight distribution to improve walking performance</li>
+          <li><strong>Hip joint</strong> — a 55g servo (stall torque 8.5–10 kgf·cm, meaning it can hold up to roughly 8.5–10 kg of force at 1 cm from its shaft before stalling) rotates to lift the foot forward for each step.</li>
+          <li><strong>Knee joint</strong> — a smaller MG90S servo (13.4g) connects the foot to the hip and adjusts the foot's angle so the sole stays flat against the ground.</li>
+          <li><strong>Foot/ankle joint</strong> — an MG955 servo tilts the body to maintain balance while the opposite foot is lifted off the ground.</li>
+        </ul>
+        <p>In total, 6 servos (3 per leg) connect to an Arduino Uno, powered by a 9V battery.</p>
+        <img src="img/robot-circuit.jpg" alt="Circuit diagram showing an Arduino Uno connected via a breadboard to a Bluetooth module, six servo motors, and a 9V battery" style="max-width:100%; border-radius:8px; margin-top:1rem;">
+      </section>
+
+      <section>
+        <h2>Control Logic</h2>
+        <p>The Arduino runs a main loop that listens for commands sent over Bluetooth from the mobile app and calls the matching function:</p>
+        <ul>
+          <li><strong>"FW"</strong> → <code>moveForward()</code> — moves several servos together in a two-step sequence for a smooth forward step.</li>
+          <li><strong>"BW"</strong> → <code>moveBackward()</code> — the same motion sequence as walking forward, but reversed.</li>
+          <li><strong>"Reset"</strong> → <code>STOP()</code> — returns every servo to its default starting angle.</li>
         </ul>
       </section>
 
-    <a href="../index.html#project" class="btn-view">
-      ← Back to Projects
-    </a>
+      <section>
+        <h2>Problems &amp; Solutions</h2>
+        <ul>
+          <li><strong>The knee joint moved unpredictably</strong> — the small servos, mounted side-by-side, weren't strong enough to properly support the leg while kicking a foot forward.</li>
+          <li><strong>The knee joint couldn't bear the weight of the electronics box</strong>, breaking repeatedly during testing — solved by reducing the weight of the box.</li>
+          <li><strong>The robot tipped over and couldn't lift its foot</strong> — caused by errors in the balance calculations; solved by making the box smaller and lighter.</li>
+          <li><strong>The foot-mounted servo bore the robot's entire weight</strong>, occasionally becoming overloaded and slipping out of position during a step.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Improvements Made</h2>
+        <ul>
+          <li>Redesigned the structure near the servos to distribute the robot's weight more evenly.</li>
+          <li>Rewrote the movement program so pairs of servos work in closer coordination with each other.</li>
+          <li>Added a short pause to let force readings settle to a stable value before starting each new movement step, instead of reacting instantly to noisy sensor data.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Testing</h2>
+        <p>
+          The robot's walking gait and the mobile control app were tested together and recorded on video with a
+          stopwatch, to evaluate how smoothly it walked and how well it responded to commands sent from the app.
+        </p>
+      </section>
 
   </main>
 

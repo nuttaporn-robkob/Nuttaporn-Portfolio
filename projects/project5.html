@@ -3,73 +3,103 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Load Cell Weight Sorting | Nuttaporn Robkob</title>
+
   <link rel="stylesheet" href="../style.css">
+
+  <title>Design and Implementation of a Load Cell-Based Weight Scale | Nuttaporn Robkob</title>
 </head>
+
 <body>
-  <main class="case-study">
-    <section class="case-hero">
-      <div class="case-eyebrow">Project 05 · Mechatronics / Embedded System</div>
-      <h1>Automatic Weight Measurement and Sorting System using Load Cell</h1>
-      <p class="case-lead">An Arduino-based weighing and weight-sorting system that measures object weight with a strain-gauge load cell and HX711 amplifier, processes the sensor signal, and uses the measured value to control a servo mechanism.</p>
-      <ul class="case-tags">
-        <li>Arduino</li><li>Load Cell</li><li>Strain Gauge</li><li>HX711</li><li>Servo Motor</li><li>Calibration</li>
-      </ul>
-    </section>
 
-    <section class="case-section">
-      <h2>Project at a Glance</h2>
-      <div class="case-grid">
-        <div class="case-card"><strong>Goal</strong><span>Measure object weight and use predefined weight ranges to drive a sorting mechanism.</span></div>
-        <div class="case-card"><strong>Controller</strong><span>Arduino microcontroller for sensor reading and control logic.</span></div>
-        <div class="case-card"><strong>Sensing</strong><span>Strain-gauge load cell with an HX711 signal-acquisition amplifier.</span></div>
-        <div class="case-card"><strong>Actuation</strong><span>Servo motor mechanism controlled according to the measured weight.</span></div>
-      </div>
-    </section>
-
-    <section class="case-section">
-      <h2>System Flow</h2>
-      <div class="architecture">
-        <div class="arch-node"><b>1. Object</b>Placed on the weighing structure</div>
-        <div class="arch-node"><b>2. Load Cell</b>Detects force through strain-gauge deformation</div>
-        <div class="arch-node"><b>3. HX711</b>Amplifies and acquires the load-cell signal</div>
-        <div class="arch-node"><b>4. Arduino</b>Reads and processes the sensor value</div>
-        <div class="arch-node"><b>5. Weight Decision</b>Compare the measured value with reference ranges</div>
-        <div class="arch-node"><b>6. Servo</b>Moves the sorting mechanism</div>
-      </div>
-    </section>
-
-    <section class="case-section">
-      <h2>Key Features</h2>
+  <header>
+    <nav>
       <ul>
-        <li>Load-cell-based weight measurement.</li>
-        <li>HX711 amplifier for load-cell signal acquisition.</li>
-        <li>Arduino-based sensor data processing.</li>
-        <li>Weight-based servo motor control.</li>
-        <li>Comparison of measured weight against reference values.</li>
-        <li>Load-cell calibration and testing.</li>
-        <li>Mechanical structure designed to support and protect the load cell.</li>
+        <li><a href="../index.html#home">Home</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#education">Education</a></li>
+        <li><a href="../index.html#project">Projects</a></li>
       </ul>
-    </section>
+    </nav>
+  </header>
 
-    <section class="case-section">
-      <h2>My Contribution</h2>
-      <ul>
-        <li>Integrated the load cell, HX711, Arduino, and servo motor.</li>
-        <li>Developed the program to read and process load-cell signals.</li>
-        <li>Implemented weight-based servo control.</li>
-        <li>Performed load-cell calibration and testing.</li>
-        <li>Identified and solved mechanical and servo-related issues.</li>
-        <li>Improved the load-bearing structure and servo operation for more reliable performance.</li>
-      </ul>
-    </section>
+  <main class="project-page">
 
-    <section class="case-section">
-      <h2>Engineering Focus</h2>
-      <p>This project demonstrates the integration of sensing, embedded programming, actuation, calibration, and mechanical design in one mechatronics system. The important part was not only reading a sensor value, but turning that measurement into a physical control action through the servo mechanism.</p>
-    </section>
+    <a href="../index.html#project" class="btn-view">
+      ← Back to Projects
+    </a>
 
-    <a class="case-back" href="../index.html#project">← Back to Projects</a>
+    <h1>Design and Implementation of a Load Cell-Based Weight Scale</h1>
+
+    <ul class="tech-tags">
+        <li>Arduino</li>
+        <li>Load Cell</li>
+        <li>HX711</li>
+        <li>Servo Motor</li>
+        <li>Sensor Integration</li>
+        <li>Calibration</li>
+    </ul>
+
+    <p>
+        An automated weight-sorting machine that reduces the need for manual product sorting, a process that
+        is prone to human error and delays. The system is designed to sort items weighing up to 1&nbsp;kg,
+        such as fruit or pre-packaged goods.
+      </p>
+
+      <section>
+        <h2>How It Works</h2>
+        <ul>
+          <li>
+            A <strong>load cell</strong> (a strain-gauge sensor — a thin metal bar that flexes very slightly
+            under weight, changing its electrical resistance in proportion to the force applied) converts the
+            weight of an object into a small electrical signal.
+          </li>
+          <li>
+            The <strong>HX711</strong>, a 24-bit analog-to-digital amplifier board, reads that tiny signal from
+            the load cell and converts it into a digital value the microcontroller can understand, communicating
+            over a simple 2-wire interface.
+          </li>
+          <li>
+            An <strong>Arduino</strong> (Uno Maker board) runs the program that reads the digital weight value
+            from the HX711 and decides how to control the servo motor based on it.
+          </li>
+          <li>A <strong>servo motor</strong> physically sorts the item into the correct bin based on which weight range it falls into.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Wiring</h2>
+        <p>The load cell's four signal wires were soldered directly onto the HX711 module:</p>
+        <ul>
+          <li>Red wire → E+</li>
+          <li>Black wire → E-</li>
+          <li>White wire → A-</li>
+          <li>Green wire → A+</li>
+        </ul>
+        <img src="Arduino_load cell.png" alt="Wiring diagram showing the load cell connected to the HX711 amplifier board, which is then connected to an Arduino Uno" style="max-width:100%; border-radius:8px; margin-top:1rem;">
+        <p>KMU Technology Co.,Ltd., 2023</p>
+      </section>
+
+      <section>
+        <h2>Problems &amp; Solutions</h2>
+        <ul>
+          <li><strong>Calibrating the load cell</strong> — Borrowed access to the university's lab to compare readings against a reference scale accurate to 4 decimal places.</li>
+          <li><strong>The 360° servo could only be controlled by direction, not by a specific angle</strong> — Switched to a 180° servo instead, which lets the program command it to hold an exact position rather than just spinning one way or the other.</li>
+          <li><strong>The load cell arrived without any mounting bracket</strong> and couldn't be used as-is — Designed and built a custom bracket to hold it securely and support the applied weight correctly.</li>
+          <li><strong>The load cell was overly sensitive</strong> to small changes in applied force — Required careful, patient calibration to get stable, repeatable readings.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Improvements Made</h2>
+        <ul>
+          <li>Redesigned the structure near the servo to better support the item's weight.</li>
+          <li>Programmed the two servos to work in closer coordination with each other.</li>
+          <li>Made the program wait for the weight reading to settle into a stable value before triggering the next action, instead of reacting to noisy, fluctuating signals.</li>
+        </ul>
+      </section>
+
   </main>
+
 </body>
 </html>

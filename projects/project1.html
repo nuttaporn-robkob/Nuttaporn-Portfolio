@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="../style.css">
 
-  <title>Global News Aggregation & AI Summarization System | Nuttaporn Robkob</title>
+  <title>Web Scraper News Aggregator | Nuttaporn Robkob</title>
 </head>
 
 <body>
@@ -23,47 +24,277 @@
     </nav>
   </header>
 
+
   <main class="project-page">
 
     <a href="../index.html#project" class="btn-view">
       ← Back to Projects
     </a>
 
-    <h1>Global News Aggregation & AI Summarization System</h1>
 
-      <p class="project-status">Status: In Progress</p>
+    <h1>Web Scraper News Aggregator</h1>
 
     <ul class="tech-tags">
-        <li>Python</li>
-        <li>API</li>
-        <li>SQLite</li>
-        <li>Data Processing</li>
-        <li>AI/LLM</li>
+      <li>Python</li>
+      <li>Flask</li>
+      <li>SQLite</li>
+      <li>HTML/CSS</li>
+      <li>RSS</li>
+      <li>Web Scraping</li>
     </ul>
 
+    <p>
+      A web-based news aggregation system developed to collect, organize, 
+      store, and display news articles from multiple RSS sources in a single 
+      platform. The project combines Python-based data collection with Flask, 
+      SQLite, HTML, and CSS to create a simple and structured news website.
+    </p>
     <section>
-      <h2>Project Overview</h2>
+      <h2>How It Works</h2>
+      <img src="NewsSystem.png"
+           alt="Web Scraper News System Workflow">
+      <ul>
+        <li>
+          The system collects news from multiple RSS feeds, including
+          <strong>Finance, General News, and World News</strong>.
+        </li>
+        <li>
+          Python processes each RSS feed and extracts important information
+          such as the <strong>title, article URL, publication date,
+          category, description, and image</strong>.
+        </li>
+        <li>
+          HTML content contained in article descriptions is cleaned before
+          the information is stored in the database.
+        </li>
+        <li>
+          The system attempts to retrieve article images from RSS metadata
+          and Open Graph or Twitter Card metadata when an image is not
+          directly provided by the RSS feed.
+        </li>
+        <li>
+          Collected news is stored in an
+          <strong>SQLite database</strong>. Duplicate articles are prevented
+          using the article URL as a unique identifier.
+        </li>
+        <li>
+          A <strong>Flask web application</strong> retrieves the stored data
+          and presents the articles through a responsive web interface.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>News Sources</h2>
       <p>
-        Developing a Python-based system that collects news from multiple sources, stores articles in a database, and processes news data for automated summarization and analysis.
+        The system is designed to collect information from multiple
+        international news sources and organize them into categories.
       </p>
+      <ul>
+        <li>
+          <strong>Finance</strong> — Investing.com
+        </li>
+        <li>
+          <strong>General News</strong> — BBC News, NPR
+        </li>
+        <li>
+          <strong>World News</strong> — BBC World, Al Jazeera,
+          The Guardian, France 24, Deutsche Welle
+        </li>
+      </ul>
     </section>
 
     <section>
       <h2>Key Features</h2>
       <ul>
-          <li>Collect news from multiple APIs</li>
-          <li>Store and manage article data using SQLite</li>
-          <li>Process and clean collected data</li>
-          <li>Generate automated news summaries</li>
-          <li>Organize news by country and category</li>
+        <li>
+          <strong>Multi-source RSS Collection</strong> —
+          Collects news from multiple RSS feeds automatically.
+        </li>
+        <li>
+          <strong>News Categorization</strong> —
+          Organizes articles into Finance, General News, and World News.
+        </li>
+        <li>
+          <strong>SQLite Database</strong> —
+          Stores collected articles locally and prevents duplicate URLs.
+        </li>
+        <li>
+          <strong>Search</strong> —
+          Allows users to search for articles using keywords in
+          the title or description.
+        </li>
+        <li>
+          <strong>Category Filter</strong> —
+          Allows users to display news from a specific category.
+        </li>
+        <li>
+          <strong>Article Images</strong> —
+          Extracts available images from RSS metadata or article pages.
+        </li>
+        <li>
+          <strong>Automatic News Update</strong> —
+          The backend periodically checks RSS feeds for new articles.
+        </li>
       </ul>
     </section>
 
-    <a href="../index.html#project" class="btn-view">
-      ← Back to Projects
+    <section>
+      <h2>System Architecture</h2>
+      <p>
+        The system is divided into several layers. The data collection layer
+        uses Python and RSS feeds to retrieve news. The processing layer
+        cleans and prepares the collected information before storing it in
+        SQLite. The Flask application then retrieves the data and sends it
+        to the HTML interface for users to browse and search.
+      </p>
+      <ul>
+        <li>
+          <strong>Data Source</strong> — RSS feeds from multiple news providers.
+        </li>
+        <li>
+          <strong>Data Collection</strong> — Python requests and XML parsing.
+        </li>
+        <li>
+          <strong>Data Processing</strong> — HTML cleaning, image extraction,
+          and data formatting.
+        </li>
+        <li>
+          <strong>Database</strong> — SQLite for structured news storage.
+        </li>
+        <li>
+          <strong>Backend</strong> — Flask handles requests, filtering,
+          searching, and database queries.
+        </li>
+        <li>
+          <strong>Frontend</strong> — HTML and CSS provide the user interface.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Technical Implementation</h2>
+      <p>
+        The project was developed using Python as the main programming
+        language. RSS feeds are retrieved using the
+        <strong>Requests</strong> library and parsed using Python's XML
+        processing tools.
+      </p>
+      <p>
+        <strong>BeautifulSoup</strong> is used to process HTML content and
+        extract article images when image information is not directly
+        available from the RSS feed.
+      </p>
+      <p>
+        <strong>Flask</strong> provides the web application backend and
+        communicates with the SQLite database to retrieve and filter news
+        articles.
+      </p>
+      <p>
+        The system also uses a scheduled background task to periodically
+        fetch new articles without requiring the user to manually run the
+        news collection process.
+      </p>
+    </section>
+
+    <section>
+      <h2>What I Learned</h2>
+      <ul>
+        <li>
+          Designing a complete application from data collection
+          to web presentation.
+        </li>
+        <li>
+          Working with RSS feeds and XML data structures.
+        </li>
+        <li>
+          Building a relational database using SQLite.
+        </li>
+        <li>
+          Connecting Python backend logic with HTML/CSS frontend components.
+        </li>
+        <li>
+          Building search and category filtering using Flask and SQL queries.
+        </li>
+        <li>
+          Handling missing data and different RSS formats from multiple
+          sources.
+        </li>
+        <li>
+          Using Git and GitHub for version control and project deployment.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Future Development</h2>
+      <p>
+        The current system focuses on collecting and organizing news.
+        Future development will extend the project from a news aggregation
+        platform into a data analysis system that can investigate the
+        relationship between financial news and stock market data.
+      </p>
+      <ul>
+        <li>
+          <strong>Stock Market Data Integration</strong> —
+          Integrate historical stock prices such as Open, High, Low,
+          Close, and Volume.
+        </li>
+        <li>
+          <strong>News Sentiment Analysis</strong> —
+          Analyze whether an article expresses positive, negative,
+          or neutral sentiment.
+        </li>
+        <li>
+          <strong>Company and Entity Recognition</strong> —
+          Automatically identify companies, organizations, and financial
+          entities mentioned in news articles.
+        </li>
+        <li>
+          <strong>News and Stock Price Visualization</strong> —
+          Create interactive charts to compare news activity with
+          changes in stock prices.
+        </li>
+        <li>
+          <strong>Historical Data Analysis</strong> —
+          Store and analyze larger amounts of news and financial data
+          over time.
+        </li>
+        <li>
+          <strong>AI-Based News Analysis</strong> —
+          Use natural language processing and AI models to summarize
+          articles and extract important information.
+        </li>
+        <li>
+          <strong>Cloud Database</strong> —
+          Migrate from SQLite to a production database such as
+          PostgreSQL for a scalable deployment.
+        </li>
+        <li>
+          <strong>Live Deployment</strong> —
+          Deploy the Flask application to a cloud platform so the
+          system can be accessed through a public web URL.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Project Direction</h2>
+      <p>
+        The long-term goal is to develop this project into a
+        <strong>news-driven financial data analysis platform</strong>.
+        Instead of only displaying news, the system could combine
+        news content, sentiment, company information, and historical
+        market data to provide a more comprehensive view of financial
+        events and market behavior.
+      </p>
+    </section>
+    <a href="https://web-scraper-news.onrender.com"
+       class="btn-primary"
+       target="_blank"
+       rel="noopener noreferrer">
+      Live Demo
     </a>
-
   </main>
-
 </body>
 </html>

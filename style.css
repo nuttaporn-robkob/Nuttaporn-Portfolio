@@ -254,15 +254,13 @@ section p {
    7. EDUCATION
    ========================================================== */
 #education {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  flex-wrap: wrap;
+  display: block;
 }
 
 #education .edu-text {
   flex: 1 1 350px;
 }
+
 
 #education h3 {
   font-size: 1.25rem;
@@ -270,9 +268,19 @@ section p {
   color: #ffcf40;
 }
 
+#education .edu-content {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
 #education img {
   border-radius: 0.75rem;
   flex: 0 1 380px;
+  width: 550px;
+  height: 350px;
 }
 
 
@@ -287,6 +295,13 @@ section p {
 
 #project > h2 {
   grid-column: 1 / -1;
+}
+
+.project-thumb-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .project-card {
@@ -498,27 +513,13 @@ section p {
 }
 
 /* ===== Case Study Pages ===== */
-.case-study { max-width: 1100px; margin: 0 auto; padding: 7rem 1.5rem 4rem; }
-.case-hero { background: linear-gradient(135deg, rgba(255,207,64,.18), rgba(255,255,255,.9)); border: 1px solid rgba(0,0,0,.08); border-radius: 24px; padding: 2.5rem; box-shadow: 0 18px 45px rgba(0,0,0,.08); }
-.case-eyebrow { color:#8a6b00; font-weight:700; letter-spacing:.12em; text-transform:uppercase; font-size:.8rem; }
-.case-hero h1 { font-size:clamp(2rem,5vw,3.6rem); line-height:1.08; margin:.6rem 0 1rem; }
-.case-lead { max-width:850px; font-size:1.08rem; line-height:1.8; color:#444; }
-.case-tags { display:flex; flex-wrap:wrap; gap:.6rem; list-style:none; padding:0; margin:1.5rem 0 0; }
-.case-tags li { padding:.45rem .75rem; border-radius:999px; background:#111; color:#fff; font-size:.82rem; }
-.case-section { margin-top:2rem; background:rgba(255,255,255,.88); border:1px solid rgba(0,0,0,.08); border-radius:20px; padding:2rem; box-shadow:0 10px 30px rgba(0,0,0,.05); }
-.case-section h2 { margin-top:0; font-size:1.55rem; }
-.case-section p, .case-section li { line-height:1.8; color:#444; }
-.case-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; }
-.case-card { padding:1.2rem; border:1px solid rgba(0,0,0,.08); border-radius:16px; background:#fafafa; }
-.case-card strong { display:block; margin-bottom:.35rem; }
-.architecture { display:grid; grid-template-columns:repeat(3,1fr); gap:.8rem; align-items:stretch; }
-.arch-node { border:1px solid rgba(0,0,0,.1); border-radius:16px; padding:1.1rem; text-align:center; background:#fff; }
-.arch-node b { display:block; margin-bottom:.35rem; }
-.case-cta { display:flex; flex-wrap:wrap; gap:.8rem; margin-top:1.5rem; }
-.case-back { display:inline-block; margin-top:1.5rem; color:#111; font-weight:700; text-decoration:none; }
-.case-back:hover { text-decoration:underline; }
-@media (max-width:768px) {
-  .case-study { padding:6rem 1rem 3rem; }
-  .case-hero, .case-section { padding:1.35rem; border-radius:18px; }
-  .case-grid, .architecture { grid-template-columns:1fr; }
+.case-study {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 5rem 1.2rem 2rem;
+}
+
+.case-section {
+  margin-top: 1.2rem;
+  padding: 1.4rem;
 }
